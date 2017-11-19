@@ -8,9 +8,7 @@ function productList(fil=[]){
       var out_put='';
       $.each( data, function( i, item ) {
       	var showOut='';
-      	console.log('----'+fil.length+'*');
       	if(Object.keys(fil).length>0){
-      		// alert('in');
 			for (var key in fil){
 				var strFil=fil[key];
 				var lowFilVal=strFil.toLowerCase();
@@ -64,15 +62,13 @@ function productList(fil=[]){
 
 $( ".filter-criteria input[type=checkbox]" ).on( "change", function() {
 	var out=[];
-	// console.log($(this));
 	$.each( $(".filter-criteria input[type=checkbox]"), function( i, filter ) {
 		if($(this).is(':checked')){
 			cl=$(this).attr('class');
 			val=$(this).attr('value');
 			if(!out[cl]){ out[cl]='';}
-
 			out[cl]=out[cl]+'--'+val+'--';
-			// out.push({[cl]: val});
+
 	 	}
 	});
 	productList(out);
@@ -85,5 +81,4 @@ $( document ).ready(function() {
 $(".filter-clear").on('click',function(){
 	$(".filter-criteria input[type=checkbox]").attr('checked', false);
 	productList();
-	// alert('aaa');
 });
