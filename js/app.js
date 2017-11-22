@@ -14,7 +14,6 @@ function productList(fil=[]){
 				var lowFilVal=strFil.toLowerCase();
 				var keyLow=key.toLowerCase();
 				var itemTe=item['specs'][keyLow];
-     			
      			if(typeof itemTe !== 'number'){
      				var itemLow=itemTe.toLowerCase();
      			}else{
@@ -30,7 +29,6 @@ function productList(fil=[]){
      	}else{
       		showOut=1;
       	}
-      	
       	if(showOut){
       		out_put+='<li>'
 					+'<a href="#'+item.id+'" class="product-photo">'
@@ -47,8 +45,6 @@ function productList(fil=[]){
 					+'<p class="product-price">'+item.price+'</p>'
 				+'</li>';      		
       	}
-
-
       });
       if(out_put===''){
       	out_put='<li>There are no phones matching the filter</li>'
@@ -59,7 +55,6 @@ function productList(fil=[]){
     	console.log( "error json" );
  	})
 }
-
 $( ".filter-criteria input[type=checkbox]" ).on( "change", function() {
 	var out=[];
 	$.each( $(".filter-criteria input[type=checkbox]"), function( i, filter ) {
@@ -77,7 +72,6 @@ $( ".filter-criteria input[type=checkbox]" ).on( "change", function() {
 $( document ).ready(function() {
   productList();
 });
-
 $(".filter-clear").on('click',function(){
 	$(".filter-criteria input[type=checkbox]").attr('checked', false);
 	productList();
